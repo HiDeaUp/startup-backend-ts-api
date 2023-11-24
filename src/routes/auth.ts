@@ -1,14 +1,12 @@
 import express, { Request, Response } from 'express';
-
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-import { User } from '../models/user.type';
 import { UserModel } from '../models/user';
 
 const router = express.Router();
 
-const JWT_SECRET = process.env.JWT_SECRET || 'secret';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // Sign-up
 router.post('/signup', async (req: Request, res: Response) => {
