@@ -4,6 +4,5 @@
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+dist
 .env
-
-#.pnp.*
