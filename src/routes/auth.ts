@@ -8,7 +8,7 @@ import { UserModel } from '../models/user';
 
 const router = express.Router();
 
-const JWT_SECRET = 'your_jwt_secret'; // Store this securely
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
 // Sign-up
 router.post('/signup', async (req: Request, res: Response) => {

@@ -1,7 +1,11 @@
 import express, { Request, Response } from 'express';
+import dotenv from 'dotenv';
 
 import { router as authRoutes } from './routes/auth';
 import { connectToDatabase } from './database';
+
+// load environment variables from .env file
+dotenv.config();
 
 const app = express();
 const port = 3000;
