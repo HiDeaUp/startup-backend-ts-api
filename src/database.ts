@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 export const connectToDatabase = async () => {
-  const mongoUri = process.env.MONGO_URI;
+  const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/express-auth';
 
     try {
       await mongoose.connect(mongoUri);
