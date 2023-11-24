@@ -1,8 +1,12 @@
 import express, { Request, Response } from 'express';
+
 import { router as authRoutes } from './routes/auth';
+import { connectToDatabase } from './database';
 
 const app = express();
 const port = 3000;
+
+connectToDatabase();
 
 app.use(express.json()); // Middleware for parsing JSON bodies
 

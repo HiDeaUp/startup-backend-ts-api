@@ -4,9 +4,9 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 import { User } from '../models/user.type';
+import { UserModel } from '../models/user';
 
 const router = express.Router();
-const users: User[] = []; // This would be your database in a real application
 
 const JWT_SECRET = 'your_jwt_secret'; // Store this securely
 
@@ -14,18 +14,25 @@ const JWT_SECRET = 'your_jwt_secret'; // Store this securely
 router.post('/signup', async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
-  const newUser = { id: Date.now().toString(), email, password: hashedPassword };
-  users.push(newUser);
-  res.status(201).send('User created');
+  
+  try {
+    const newUser = new UserModel({ email, password: hashedPassword });
+    await newUser.save();
+    res.status(201).send('User created');
+  } catch (error) {
+    res.status(500).send('Error creating user');
+  }
 });
 
 // Sign-in
 router.post('/signin', async (req: Request, res: Response) => {
   const { email, password } = req.body;
-  const user = users.find(u => u.email === email);
+  const user = await UserModel.findOne({ email });
+
   if (!user || !(await bcrypt.compare(password, user.password))) {
     return res.status(401).send('Invalid credentials');
   }
+
   const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1h' });
   res.json({ token });
 });
