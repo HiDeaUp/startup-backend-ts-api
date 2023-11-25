@@ -2,14 +2,25 @@ import express, { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-import { UserModel } from '../models/user';
+import { authMiddleware } from '../middleware/authMiddleware';
+import { User, UserModel } from '../models/user';
+
+// WHY Nodemon wants this here
+declare global {
+  namespace Express {
+    export interface Request {
+      user?: User; // Add the custom property (adjust IUser according to your user model)
+    }
+  }
+}
+
 
 const router = express.Router();
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET || 'your_default_jwt_secret';
 
 // Sign-up
-router.post('/signup', async (req: Request, res: Response) => {
+router.post('/signup', authMiddleware, async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   
@@ -23,7 +34,7 @@ router.post('/signup', async (req: Request, res: Response) => {
 });
 
 // Sign-in
-router.post('/signin', async (req: Request, res: Response) => {
+router.post('/signin', authMiddleware, authMiddleware, async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const user = await UserModel.findOne({ email });
 
@@ -36,9 +47,11 @@ router.post('/signin', async (req: Request, res: Response) => {
 });
 
 // Sign-out
-router.post('/signout', (req: Request, res: Response) => {
+router.post('/signout', authMiddleware, (req: Request, res: Response) => {
   // Sign-out logic (usually handled client-side by removing the token)
-  res.send('Signed out');
+  return res.send('Signed out');
 });
+
+
 
 export { router };
