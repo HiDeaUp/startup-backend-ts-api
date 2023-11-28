@@ -9,3 +9,7 @@ dist
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# IDE
+.vscode
+.idea
