@@ -20,7 +20,8 @@ const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'your_default_jwt_secret';
 
 // Sign-up
-router.post('/signup', authMiddleware, async (req: Request, res: Response) => {
+// TODO Remove authMiddleware from /signin as cannot happen here
+router.post('/signup', async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   
@@ -34,7 +35,7 @@ router.post('/signup', authMiddleware, async (req: Request, res: Response) => {
 });
 
 // Sign-in
-router.post('/signin', authMiddleware, authMiddleware, async (req: Request, res: Response) => {
+router.post('/signin', authMiddleware, async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const user = await UserModel.findOne({ email });
 
@@ -46,7 +47,12 @@ router.post('/signin', authMiddleware, authMiddleware, async (req: Request, res:
   res.json({ token });
 });
 
+router.post('/profile/:id', authMiddleware, async (req: Request, res: Response) => {
+  res.status(200).send("Not Implemented Yet")
+})
+
 // Sign-out
+// TODO Remove signout endpoint from backend. This should only occurs in the frontend
 router.post('/signout', authMiddleware, (req: Request, res: Response) => {
   // Sign-out logic (usually handled client-side by removing the token)
   return res.send('Signed out');
