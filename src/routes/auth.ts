@@ -23,7 +23,8 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your_default_jwt_secret';
 // TODO Remove authMiddleware from /signin as cannot happen here
 router.post('/signup', async (req: Request, res: Response) => {
   const { email, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const salt = await bcrypt.genSalt(16); // generating the salt for our bcrypt hasing
+  const hashedPassword = await bcrypt.hash(password, salt);
   
   try {
     const newUser = new UserModel({ email, password: hashedPassword });
