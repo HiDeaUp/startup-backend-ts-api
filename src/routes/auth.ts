@@ -49,6 +49,7 @@ router.post('/signin', async (req: Request, res: Response) => {
 });
 
 router.post('/profile/:id', authMiddleware, async (req: Request, res: Response) => {
+  // edit user endpoint
   res.status(200).send("Not Implemented Yet")
 })
 
