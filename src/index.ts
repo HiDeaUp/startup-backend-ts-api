@@ -1,5 +1,5 @@
-import express, { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
+import express from "express";
 import rateLimit from 'express-rate-limit';
 
 import { router as authRoutes } from './routes/auth';
