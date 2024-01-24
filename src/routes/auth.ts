@@ -36,7 +36,7 @@ router.post('/signup', async (req: Request, res: Response) => {
 });
 
 // Sign-in
-router.post('/signin', authMiddleware, async (req: Request, res: Response) => {
+router.post('/signin', async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const user = await UserModel.findOne({ email });
 
