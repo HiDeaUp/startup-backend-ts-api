@@ -1,6 +1,6 @@
 # TypeScript Backend
 
-## 3-Hour Full Course
+## 3-Hour Full Video Course
 [![Watch the video](https://i1.ytimg.com/vi/3xBPCwZAN7w/maxresdefault.jpg)](https://youtu.be/3xBPCwZAN7w)
 
 👉 **[Click Here to watch on YouTube](https://youtu.be/3xBPCwZAN7w)**, me building the NodeJS App from ZERO (with AI) 
