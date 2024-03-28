@@ -1,9 +1,10 @@
 # TypeScript Backend
 
 ## 3-Hour Full Video Course
+
 [![Watch the video](https://i1.ytimg.com/vi/3xBPCwZAN7w/maxresdefault.jpg)](https://youtu.be/3xBPCwZAN7w)
 
-👉 **[Click Here to watch on YouTube](https://youtu.be/3xBPCwZAN7w)**, me building the NodeJS App from ZERO (with AI) 
+👉 **[Click Here to Watch on YouTube](https://youtu.be/3xBPCwZAN7w)**, me building the NodeJS App from ZERO (with AI) 🤖
 
 
 ## Installation
@@ -31,3 +32,7 @@ $ yarn run start:dev
 # production mode
 $ yarn run start:prod
 
+
+## Me 👋
+
+[Pierre-Henry Soria](https://ph7.me) ツ – A super passionate & enthusiastic Problem-Solver / Senior software engineer 😊 Also, a true cheese 🧀, ristretto ☕️, and dark chocolate lover! 😋
