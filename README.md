@@ -9,7 +9,7 @@
 
 ## Installation
 
-```bash
+```console
 $ yarn install
 ```
 
@@ -22,7 +22,7 @@ $ yarn install
 
 ## Running the app
 
-```bash
+```console
 # development
 $ yarn run start
 
@@ -31,6 +31,7 @@ $ yarn run start:dev
 
 # production mode
 $ yarn run start:prod
+```
 
 
 ## Me 👋
