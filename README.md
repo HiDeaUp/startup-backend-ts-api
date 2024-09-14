@@ -7,20 +7,20 @@
 👉 **[Click Here to Watch on YouTube](https://youtu.be/3xBPCwZAN7w)**, me building the NodeJS App from ZERO (with AI) 🤖
 
 
-## Installation
+## Installation 🔌
 
 ```console
 $ yarn install
 ```
 
 
-### Setup
+### Setup 📃
 1. As mentioned in [the video](https://youtu.be/3xBPCwZAN7w), create an account at [MongoDB Atlas](https://www.mongodb.com/atlas/database)
 2. Rename `.env.sample` file to `.env`
 3. Then, open `.env` and update the database credentials with yours.
 
 
-## Running the app
+## Running the App ⚙️
 
 ```console
 # development
