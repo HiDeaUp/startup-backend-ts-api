@@ -34,6 +34,6 @@ $ yarn run start:prod
 ```
 
 
-## Me 👋
+## About Me 👋
 
 [Pierre-Henry Soria](https://ph7.me) ツ – A super passionate & enthusiastic Problem-Solver / Senior software engineer 😊 Also, a true cheese 🧀, ristretto ☕️, and dark chocolate lover! 😋
